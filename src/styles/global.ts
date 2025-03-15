@@ -125,8 +125,10 @@ export const GlobalStyle = css`
     border: 0;
     background-color: transparent;
     cursor: pointer;
-    font-family: "Pretendard", Dotum, "돋움", Gulim, "굴림", Arial,
-      Helveticasans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+      "Pretendard Variable", Pretendard, Roboto, "Noto Sans KR", "Segoe UI",
+      "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+      sans-serif;
   }
   address,
   em {
@@ -147,6 +149,9 @@ export const GlobalStyle = css`
   a {
     color: inherit;
     text-decoration: none;
+    :hover {
+      cursor: pointer;
+    }
   }
   :root {
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
