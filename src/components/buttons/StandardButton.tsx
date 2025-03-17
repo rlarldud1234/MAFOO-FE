@@ -1,4 +1,3 @@
-"use client";
 import { color } from "@/styles/color";
 import { font } from "@/styles/font";
 import styled from "@emotion/styled";
