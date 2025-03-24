@@ -40,8 +40,8 @@ const Header = () => {
         </MenuContainer>
       </nav>
       <ButtonContainer>
-        <StandardButton size="small" styleType="filled" title="Login" />
-        <StandardButton size="small" styleType="outline" title="Sign up" />
+        <StandardButton size="small" styleType="outline" title="sign in" />
+        <StandardButton size="small" styleType="filled" title="sign up" />
       </ButtonContainer>
     </HeaderContainer>
   );
@@ -55,6 +55,10 @@ const HeaderContainer = styled.header`
   padding: 0 15rem;
   z-index: 500;
   height: 84px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 `;
 const Logo = styled.a`
   width: 127px;
