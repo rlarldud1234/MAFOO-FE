@@ -14,7 +14,9 @@ const StandardButton = (props: StandardButtonProps) => {
   return (
     <ButtonContainer size={props.size} styleType={props.styleType}>
       {props.title}
-      {props.image ? <Image src={props.image} alt="buttonImage" /> : null}
+      {props.image ? (
+        <Icon src={props.image} alt="icon" styleType={props.styleType} />
+      ) : null}
     </ButtonContainer>
   );
 };
@@ -85,4 +87,10 @@ const ButtonContainer = styled.button<{ size: string; styleType: string }>`
   }
 `;
 
+const Icon = styled(Image)<{ styleType: string }>`
+  filter: ${({ styleType }) =>
+    styleType === "filled"
+      ? "invert(100%) sepia(71%) saturate(2%) hue-rotate(209deg) brightness(111%) contrast(101%);"
+      : "invert(26%) sepia(99%) saturate(1685%) hue-rotate(212deg) brightness(88%) contrast(98%);"};
+`;
 export default StandardButton;
