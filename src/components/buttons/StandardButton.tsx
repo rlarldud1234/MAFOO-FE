@@ -1,40 +1,44 @@
 import { color } from "@/styles/color";
 import { font } from "@/styles/font";
 import styled from "@emotion/styled";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 interface StandardButtonProps {
   size: "large" | "medium" | "small";
   styleType: "filled" | "outline" | "empty";
   title: string;
-  image?: string;
+  image?: StaticImageData;
 }
 
 const StandardButton = (props: StandardButtonProps) => {
   return (
     <ButtonContainer size={props.size} styleType={props.styleType}>
       {props.title}
-      {props.image ? <Image src={props.image} alt="buttonImage" /> : null}
+      {props.image ? (
+        <Icon src={props.image} alt="icon" styleType={props.styleType} />
+      ) : null}
     </ButtonContainer>
   );
 };
 
 const ButtonContainer = styled.button<{ size: string; styleType: string }>`
   display: flex;
+  gap: 8px;
   align-items: center;
   padding: ${({ size }) => (size === "small" ? "24px" : "32px")};
+  width: fit-content;
   box-shadow: ${({ styleType }) =>
     styleType === "outline" ? `inset 0 0 0 1px ${color.primary[600]}` : null};
   border-radius: ${({ size }) => (size === "small" ? "4px" : "8px")};
   ${({ size }) => {
     switch (size) {
       case "large":
-        return `height: 59px; ${font.body.lg};`;
+        return `height: 59px; ${font.body.lg.medium};`;
         break;
       case "medium":
-        return `height: 48px; ${font.body.md};`;
+        return `height: 48px; ${font.body.md.medium};`;
       case "small":
-        return `height: 37px; ${font.body.sm};`;
+        return `height: 37px; ${font.body.xsm.regular};`;
       default:
         return;
     }
@@ -83,4 +87,10 @@ const ButtonContainer = styled.button<{ size: string; styleType: string }>`
   }
 `;
 
+const Icon = styled(Image)<{ styleType: string }>`
+  filter: ${({ styleType }) =>
+    styleType === "filled"
+      ? "invert(100%) sepia(71%) saturate(2%) hue-rotate(209deg) brightness(111%) contrast(101%);"
+      : "invert(26%) sepia(99%) saturate(1685%) hue-rotate(212deg) brightness(88%) contrast(98%);"};
+`;
 export default StandardButton;

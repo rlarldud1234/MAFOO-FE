@@ -7,10 +7,10 @@ import { useState } from "react";
 import StandardButton from "../buttons/StandardButton";
 
 const menuData = [
-  { id: 1, name: "Menu", path: "/" },
-  { id: 2, name: "Menu", path: "/" },
-  { id: 3, name: "Menu", path: "/" },
-  { id: 4, name: "Menu", path: "/" },
+  { id: 1, name: "Menu", path: "/menu1" },
+  { id: 2, name: "Menu", path: "/menu2" },
+  { id: 3, name: "Menu", path: "/menu3" },
+  { id: 4, name: "Menu", path: "/menu4" },
 ];
 const Header = () => {
   const [selectedId, setSelectedId] = useState<number>(0);
@@ -30,9 +30,8 @@ const Header = () => {
                 <Menu
                   onClick={() => setSelectedId(menu.id)}
                   isSelected={selectedId === menu.id}
-                  href={menu.path}
                 >
-                  Menu
+                  {menu.name}
                 </Menu>
               </li>
             );
@@ -40,8 +39,8 @@ const Header = () => {
         </MenuContainer>
       </nav>
       <ButtonContainer>
-        <StandardButton size="small" styleType="filled" title="Login" />
-        <StandardButton size="small" styleType="outline" title="Sign up" />
+        <StandardButton size="small" styleType="outline" title="sign in" />
+        <StandardButton size="small" styleType="filled" title="sign up" />
       </ButtonContainer>
     </HeaderContainer>
   );
@@ -55,6 +54,10 @@ const HeaderContainer = styled.header`
   padding: 0 15rem;
   z-index: 500;
   height: 84px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 `;
 const Logo = styled.a`
   width: 127px;
