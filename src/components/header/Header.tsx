@@ -7,10 +7,10 @@ import { useState } from "react";
 import StandardButton from "../buttons/StandardButton";
 
 const menuData = [
-  { id: 1, name: "Menu", path: "/" },
-  { id: 2, name: "Menu", path: "/" },
-  { id: 3, name: "Menu", path: "/" },
-  { id: 4, name: "Menu", path: "/" },
+  { id: 1, name: "Menu", path: "/menu1" },
+  { id: 2, name: "Menu", path: "/menu2" },
+  { id: 3, name: "Menu", path: "/menu3" },
+  { id: 4, name: "Menu", path: "/menu4" },
 ];
 const Header = () => {
   const [selectedId, setSelectedId] = useState<number>(0);
@@ -30,9 +30,8 @@ const Header = () => {
                 <Menu
                   onClick={() => setSelectedId(menu.id)}
                   isSelected={selectedId === menu.id}
-                  href={menu.path}
                 >
-                  Menu
+                  {menu.name}
                 </Menu>
               </li>
             );
